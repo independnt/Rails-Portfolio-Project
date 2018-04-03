@@ -1,0 +1,10 @@
+class CreateBackedProjects < ActiveRecord::Migration[5.1]
+  def change
+    create_table :backed_projects do |t|
+      t.integer :user_id
+      t.integer :project_id
+
+      t.timestamps
+    end
+  end
+end
