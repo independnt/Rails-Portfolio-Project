@@ -11,12 +11,12 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      render 'users/new'
+      render :new
     end
   end
 
   def show
-  end 
+  end
 
   private
 
