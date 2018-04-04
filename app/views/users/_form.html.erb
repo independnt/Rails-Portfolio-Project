@@ -1,0 +1,38 @@
+<%= form_for user do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h4>
+
+      <ul>
+      <% user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%=f.label :username%>
+    <%=f.text_field :username%>
+  <div>
+
+  <div>
+    <%=f.label :password%>
+    <%=f.password_field :password%>
+  <div>
+
+  <div>
+    <%=f.label :email%>
+    <%=f.text_field :email%>
+  <div>
+
+  <div>
+    <%=f.label :phone_number, "Phone Number (Optional)"%>
+    <%=f.text_field :phone_number%>
+  <div>
+
+  <div class="action">
+    <%=f.submit "Create Account"%>
+  </div>
+
+<% end %>

@@ -1,5 +1,5 @@
  <h2> Welcome to the family, please sign up here! </h2>
 
- <%=render 'form'%>
+ <%=render partial: 'form', locals: {user: @user}%>
 
 <%= link_to "Back", root_path %>
