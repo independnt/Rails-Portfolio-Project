@@ -17,6 +17,17 @@
       <%= select_tag :state, options_for_select(us_states) %>
     </div>
 
+    <div>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    </div>
+
+    <div>
+      <%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
+        <%= categories_fields.label :name, "Category name" %>
+        <%= categories_fields.text_field :name %>
+      <% end %>
+    </div>
+
     <div class="description_class">
       <%= f.label :description, "Description" %>
       <%= f.text_area :description, :cols => 80, :rows => 15 %>
