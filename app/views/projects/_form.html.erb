@@ -1,0 +1,30 @@
+<%= form_for(@project, url: '/users/:user_id/projects') do |f| %>
+  <%= f.hidden_field :user_id %>
+
+  <div class="label">
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </div>
+
+    <div>
+      <%= f.label :state %>
+      <%= select_tag :state, options_for_select(us_states) %>
+    </div>
+
+    <div class="description_class">
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description, :cols => 80, :rows => 15 %>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  </div>
+
+<% end %>

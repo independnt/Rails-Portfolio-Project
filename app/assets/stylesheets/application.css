@@ -17,3 +17,11 @@
  .home-page-font {
    font-family: fantasy;
  }
+
+ .label{
+  width: 4em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}

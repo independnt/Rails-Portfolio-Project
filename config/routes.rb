@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "welcome#home"
 
   resources :users do
-    resources :projects, only:[:new, :create, :show, :index]
+    resources :projects, only:[:new, :create, :show, :index], as: :project
   end
 
   get "/login", to: 'sessions#new', as: 'login'
