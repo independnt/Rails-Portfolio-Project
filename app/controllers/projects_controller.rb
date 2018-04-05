@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   def new
+    @user = User.find_by(id: params[:user_id])
     @project = Project.new(user_id: params[:user_id])
   end
 
@@ -22,7 +23,12 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(id: params[:user_id])
+    @project = @user.projects.find_by(id: params[:id])
+  end
 
+  def update
+    
   end
 
   private

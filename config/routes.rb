@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 #users and users project paths
   resources :users do
-    resources :projects, only:[:new, :create, :show, :index, :edit], as: :project
+    resources :projects
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
 

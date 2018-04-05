@@ -8,4 +8,8 @@ module UsersHelper
     link_to "Delete Project", user_delete_project_path(user, project), method: :delete, confirm: "Are you sure?"
   end
 
+  def correct_user?(user)
+    user == current_user
+  end
+
 end
