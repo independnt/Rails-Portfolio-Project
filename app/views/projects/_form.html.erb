@@ -17,9 +17,13 @@
       <%= select_tag :state, options_for_select(us_states) %>
     </div>
 
+    <p>Choose some Categories!</p>
+
     <div>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name%>
     </div>
+
+    <p> Or create your own! </p>
 
     <div>
       <%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
