@@ -1,0 +1,16 @@
+<div class="titles">
+  <h1><%=@project.name%></h1>
+  <%if @project.user_id == current_user.id %>
+    <%= edit_project(@user, @project) %> - <%= delete_project(@user, @project) %>
+  <% end %>
+</div>
+
+<h4>Project location: <%=@project.city%>, <%=@project.state%></h4>
+<h3>Description:</h3>
+<p><%=@project.description%></p>
+
+<h4>Relevant Categories:</h4>
+<ul>
+<% @project.categories.each do |category| %>
+  <li> <%=category.name%> </li>
+<% end %>
