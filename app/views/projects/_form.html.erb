@@ -14,7 +14,7 @@
 
     <div>
       <%= f.label :state %>
-      <%= select_tag :state, options_for_select(us_states) %>
+      <%= f.select(:state, options_for_select(us_states)) %>
     </div>
 
     <p>Choose some Categories!</p>
