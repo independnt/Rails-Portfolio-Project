@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
 
-#non-users
-  resources :projects, only: [:show, :index]
 
   get "/login", to: 'sessions#new', as: 'login'
   post "/logging_in", to: 'sessions#create', as: 'logging_in'
