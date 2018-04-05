@@ -1,7 +1,7 @@
 <%= form_for(@project, url: '/users/:user_id/projects') do |f| %>
   <%= f.hidden_field :user_id %>
 
-  <div class="label">
+  <div>
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -18,22 +18,22 @@
     </div>
 
     <div>
-      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name%>
     </div>
 
     <div>
       <%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
-        <%= categories_fields.label :name, "Category name" %>
+        <%= categories_fields.label :name, "Create a new category" %>
         <%= categories_fields.text_field :name %>
       <% end %>
     </div>
 
-    <div class="description_class">
+    <div class="label">
       <%= f.label :description, "Description" %>
       <%= f.text_area :description, :cols => 80, :rows => 15 %>
     </div>
 
-    <div>
+    <div class="actionButtons">
       <%= f.submit %>
     </div>
   </div>

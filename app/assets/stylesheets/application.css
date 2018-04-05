@@ -25,3 +25,10 @@
   margin-right: 0.5em;
   display: block
 }
+.actionButtons {
+    position:fixed;
+    bottom:25px;
+    left:0;
+    right:0;
+    height:250px;
+}
