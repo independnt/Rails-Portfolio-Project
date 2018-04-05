@@ -17,6 +17,11 @@ class ProjectsController < ApplicationController
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
       @project = @user.projects.find_by(id: params[:id])
+      if @project.nil?
+        redirect_to @user, flash:{alert: "Project not found"}
+      end
+    else
+      @project = Project.find(params[:id])
     end
   end
 

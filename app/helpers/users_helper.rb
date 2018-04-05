@@ -1,13 +1,5 @@
 module UsersHelper
 
-  def project_list(user)
-    link = ""
-    user.projects.each do |project|
-      link = link_to(project.name, user_project_path(user, project))
-    end
-    link
-  end
-
   def edit_project(user, project)
     link_to "Edit Project", edit_user_project_path(user, project)
   end

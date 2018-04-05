@@ -5,5 +5,11 @@
 <% if @user.projects.empty? %>
   You currently have no projects, please click <%= link_to "here", new_user_project_path(@user)%> to add one!
 <% else %>
-  <%= project_list(@user) %>
+  <ul>
+    <% @user.projects.each do |project| %>
+      <li><%= link_to project.name, user_project_path(@user, project) %></li>
+    <% end %>
+  </ul>
 <% end %>
+
+<p><%= link_to "Add new project", new_user_project_path(@user)%></p>
