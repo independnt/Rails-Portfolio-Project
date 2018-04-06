@@ -1,6 +1,6 @@
 <div class="titles">
   <h1><%=@project.name%></h1>
-  <%=button_to "Back this project", back_project_path(@project.id) if guest_user(@user)%>
+  <%=button_to "Back this project",back_project_path(@project.id) if guest_user(@user)%>
   <%if correct_user?(@user) %>
     <%= edit_project(@user, @project) %> - <%= delete_project(@user, @project) %>
   <% end %>

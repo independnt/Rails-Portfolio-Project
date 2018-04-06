@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
 
-  get '/projects', to: 'projects#index'
-  post '/back_project/:id', to: 'backed_projects#back_project'
+  get '/active_projects', to: 'projects#index'
+  post '/back_project/:id', to: 'backed_projects#back_project', as: :back_project
 
   get '/category/:name', to: 'categories#category', param: :name
 

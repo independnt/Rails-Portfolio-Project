@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   has_many :backed_projects
   has_many :backed, through: :backed_projects, source: 'user'
   accepts_nested_attributes_for :categories
+  scope :active_projects, -> {where(active: true)}
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|
