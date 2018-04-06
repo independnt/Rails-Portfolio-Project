@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :categories, only:[:index, :show]
 
+  get '/auth/github/callback' => 'sessions#create'
+  
   get "/login", to: 'sessions#new', as: 'login'
   post "/logging_in", to: 'sessions#create', as: 'logging_in'
   delete '/logout', to: 'sessions#destroy', as: 'logout'

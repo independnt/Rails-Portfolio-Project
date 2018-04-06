@@ -9,12 +9,22 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      redirect_to @user
+    if auth_hash = request.env["omniauth.auth"]
+      oauth_email = request.env["omniauth.auth"]["info"]["email"]
+      if @user = User.find_by(:email => oauth_email)
+        session[:user_id] = @user.id
+        redirect_to @user
+      else
+        redirect_to login_path
+      end
     else
-      redirect_to login_path, flash:{alert: "Please enter a valid username AND password."}
+      @user = User.find_by(username: params[:user][:username])
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to @user
+      else
+        redirect_to login_path, flash:{alert: "Please enter a valid username AND password."}
+      end
     end
   end
 
