@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   get '/projects', to: 'projects#index'
-  post '/back_project/:id', to: 'backedprojects#back_project', as: :back_project
+  post '/back_project/:id', to: 'backed_projects#back_project', as: :back_project
 
   get "/login", to: 'sessions#new', as: 'login'
   post "/logging_in", to: 'sessions#create', as: 'logging_in'

@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def add_project(project)
     if self.projects_backed.where(id: project.id).empty?
-      BackedProject.create(project_id: project)
+      BackedProject.create(user: self, project: project)
     end
   end
 
