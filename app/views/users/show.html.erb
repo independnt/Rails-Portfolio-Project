@@ -3,11 +3,19 @@
 <% if @user.projects.empty? %>
   You currently have no projects, please click <%= link_to "here", new_user_project_path(@user)%> to add one!
 <% else %>
-  <ul>
-    <% @user.projects.each do |project| %>
-      <li><%= link_to project.name, user_project_path(@user, project) %></li>
+  <table>
+    <tr>
+      <th>Project Name</th>
+      <th>Active?</th>
+    </tr>
+<% @user.projects.each do |project| %>
+    <tr>
+      <td><%= link_to project.name, user_project_path(@user, project) %></td>
+      <td><%= project.active%></td>
+    </tr>
     <% end %>
-  </ul>
+  </table>
+
 <% end %>
 
 <% if correct_user?(@user) %>
