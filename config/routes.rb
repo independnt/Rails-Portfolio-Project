@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   get '/active_projects', to: 'projects#index'
   post '/back_project/:id', to: 'backed_projects#back_project', as: :back_project
 
-  get '/category/:name', to: 'categories#category', param: :name
-
-
+  resources :categories, only:[:index, :show]
 
   get "/login", to: 'sessions#new', as: 'login'
   post "/logging_in", to: 'sessions#create', as: 'logging_in'

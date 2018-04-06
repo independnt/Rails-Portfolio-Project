@@ -1,0 +1,9 @@
+<h1>All projects under <%=@category.name%></h1>
+
+<ul>
+<%@category.projects.each do |project|%>
+  <li><%=link_to project.name, user_project_path(project.user, project)%></li>
+<% end %>
+</ul>
+
+<%= link_to "Categories Index", categories_path %>
