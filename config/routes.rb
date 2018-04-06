@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
 #users and users project paths
   resources :users do
-    resources :projects
+    resources :projects, except: :index
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
+
+  get '/projects', to: 'projects#index'
 
 
   get "/login", to: 'sessions#new', as: 'login'

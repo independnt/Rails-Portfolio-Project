@@ -1,6 +1,4 @@
-<h1> Welcome back, <%=@user.username%></h1>
-
-<h3> Your projects</h3>
+<h2> <%= @user.username %>'s projects</h2>
 
 <% if @user.projects.empty? %>
   You currently have no projects, please click <%= link_to "here", new_user_project_path(@user)%> to add one!
@@ -12,4 +10,6 @@
   </ul>
 <% end %>
 
-<p><%= link_to "Add new project", new_user_project_path(@user)%></p>
+<% if correct_user?(@user) %>
+  <p><%= link_to "Add new project", new_user_project_path(@user)%></p>
+<% end %>

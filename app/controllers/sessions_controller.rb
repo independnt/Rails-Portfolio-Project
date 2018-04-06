@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authentication_required
+  #skip_before_action :authentication_required
 
   def new
     if logged_in?

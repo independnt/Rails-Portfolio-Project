@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 
+  def index
+    @projects = Project.all
+  end
+
   def new
     @user = User.find_by(id: params[:user_id])
     @project = Project.new(user_id: params[:user_id])
@@ -28,7 +32,17 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    
+    @user = User.find_by(id: params[:user_id])
+    @project = @user.projects.find_by(id: params[:id])
+    @project.update(project_params)
+    redirect_to user_project_path(@user, @project), flash: {notice: "Your project has been updated!"}
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:user_id])
+    @project = @user.projects.find_by(id: params[:id])
+    @project.destroy
+    redirect_to root_path, flash:{notice: "Your project has been deleted"}
   end
 
   private
