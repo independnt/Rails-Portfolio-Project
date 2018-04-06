@@ -3,19 +3,18 @@ class SessionsController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to user_path(@current_user)
+      redirect_to user_path(@current_user), flash:{notice: "already logged in!"}
     end
     @user = User.new
   end
 
   def create
-    if auth_hash = request.env["omniauth.auth"]
-      oauth_email = request.env["omniauth.auth"]["info"]["email"]
-      if @user = User.find_by(:email => oauth_email)
+    if auth
+      if @user = User.find_by(:email => auth["info"]["email"])
         session[:user_id] = @user.id
         redirect_to @user
       else
-        redirect_to login_path
+        redirect_to login_path, flash:{alert: "User doesn't exist, please sign up first!"}
       end
     else
       @user = User.find_by(username: params[:user][:username])
@@ -31,6 +30,12 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to root_path
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
   end
 
 
