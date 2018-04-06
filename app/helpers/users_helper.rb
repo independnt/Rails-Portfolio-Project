@@ -12,4 +12,9 @@ module UsersHelper
     user == current_user
   end
 
+  def guest_user(user)
+    if logged_in? && user != current_user
+    end
+  end
+
 end
