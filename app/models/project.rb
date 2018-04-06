@@ -12,7 +12,7 @@ class Project < ApplicationRecord
         category = Category.find_or_create_by(category_attribute)
         if !self.categories.include?(category)
           self.categories << category
-        end 
+        end
       end
     end
   end

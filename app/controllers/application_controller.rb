@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def authentication_required
     if !logged_in?
-      redirect_to root_path, flash: {notice: "You need to be logged in to do that!"}
+      redirect_to projects_path, flash: {notice: "You need to be logged in to do that!"}
     end
   end
 

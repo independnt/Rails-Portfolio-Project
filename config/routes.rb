@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "welcome#home"
+  root "welcome#about"
 
 #users and users project paths
   resources :users do
@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
 
   get '/projects', to: 'projects#index'
-  post '/back_project/:id', to: 'backed_projects#back_project', as: :back_project
+  post '/back_project/:id', to: 'backed_projects#back_project'
+
+  get '/category/:name', to: 'categories#category', param: :name
+
+
 
   get "/login", to: 'sessions#new', as: 'login'
   post "/logging_in", to: 'sessions#create', as: 'logging_in'

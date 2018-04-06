@@ -17,6 +17,11 @@
       <%= f.select(:state, options_for_select(us_states)) %>
     </div>
 
+    <div>
+      <%= f.label :active, "Active Project?" %>
+      <%= f.check_box :active %>
+    </div>
+
     <p>Choose some Categories!</p>
 
     <div>

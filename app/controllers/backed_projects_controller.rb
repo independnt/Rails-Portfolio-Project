@@ -1,5 +1,5 @@
 class BackedProjectsController < ApplicationController
-  before_action :logged_in?
+  before_action :authentication_required
 
   def back_project
     @project = Project.find(params[:id])
