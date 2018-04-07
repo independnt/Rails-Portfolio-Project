@@ -37,6 +37,10 @@ class ProjectsController < ApplicationController
     redirect_to root_path, flash:{notice: "Your project has been deleted"}
   end
 
+  def redirect
+    redirect_to new_user_project_path(params[:user_id])
+  end
+
   private
 
   def project_params
