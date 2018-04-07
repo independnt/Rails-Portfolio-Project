@@ -1,14 +1,18 @@
 class ProjectsController < ApplicationController
-  before_action :set_user_and_project, only:[:new, :show, :edit, :update, :destroy]
-  before_action :correct_user?, only:[:edit, :destroy]
+  before_action :set_user_and_project, only:[:show, :edit, :update, :destroy]
+  before_action :allowed_user, only:[:edit, :destroy]
+
   def index
     @projects = Project.active_projects
   end
 
   def new
+    @user = User.find_by(id: params[:user_id])
+    @project = @user.projects.new(user_id: params[:user_id])
   end
 
   def create
+    @user = User.find_by(id: params[:user_id])
     @project = Project.new(project_params)
     if @project.save
       redirect_to user_project_path(@project.user_id, @project)
@@ -50,5 +54,14 @@ class ProjectsController < ApplicationController
       redirect_to active_projects_path, flash:{alert: "That user does not exist."}
     end
   end
+
+  def allowed_user
+    @project = Project.find_by(id: params[:id])
+    unless current_user == @project.user
+      redirect_to active_projects_path, flash:{alert: "You don't have access to that."}
+    end
+  end
+
+
 
 end

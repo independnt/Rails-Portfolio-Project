@@ -18,6 +18,6 @@
 
 <% end %>
 
-<% if correct_user?(@user) %>
+<% if correct_user(@user) %>
   <p><%= link_to "Add new project", new_user_project_path(@user)%></p>
 <% end %>
