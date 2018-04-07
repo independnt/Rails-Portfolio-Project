@@ -27,6 +27,8 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to active_projects_path, flash:{alert: "That user does not exist."}
   end
 
 end
