@@ -20,4 +20,11 @@
 
 <% if correct_user(@user) %>
   <p><%= link_to "Add new project", new_user_project_path(@user)%></p>
+  <br>
+  <b> Backed Projects: </b>
+  <ul>
+    <%@user.projects_backed.each do |project|%>
+      <li><%=link_to project.name, user_project_path(project.user, project)%></li>
+    <% end %>
+  </ul>
 <% end %>

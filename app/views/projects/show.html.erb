@@ -20,3 +20,9 @@
       <% end %>
     </ul>
 </div>
+
+<div>
+  <%if backed_user(current_user, @project) %>
+    <p> Contact this user to collaborate: <%=@user.email%></p>
+  <% end %>
+</div>
