@@ -9,7 +9,7 @@ module UsersHelper
   end
 
   def backed_user(user, project)
-    user.projects_backed.include?(project)
+    user.projects_backed.include?(project) if user 
   end
 
 end
