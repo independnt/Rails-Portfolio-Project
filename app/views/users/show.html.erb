@@ -7,16 +7,21 @@
     <tr>
       <th>Project Name</th>
       <th>Active?</th>
+      <th>More</th>
     </tr>
 <% @user.projects.each do |project| %>
     <tr>
       <td><%= link_to project.name, user_project_path(@user, project) %></td>
       <td><%= project.active%></td>
+      <td><button class="js-more" data-uid="<%=@user.id%>" data-id="<%= project.id %>">Details..</button></td>
     </tr>
     <% end %>
   </table>
 
 <% end %>
+
+<div id='project-display'>
+</div>
 
 <% if correct_user(@user) %>
   <p><%= link_to "Add new project", new_user_project_path(@user)%></p>
