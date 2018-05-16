@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
 
+  resources :project_comments, only:[:create]
+
   get '/active_projects', to: 'projects#index'
   post '/back_project/:id', to: 'backed_projects#back_project', as: :back_project
   get '/users/:user_id/projects', to: 'projects#redirect'

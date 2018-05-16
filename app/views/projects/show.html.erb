@@ -38,3 +38,10 @@
 <div class="js-next" data-uid="<%=@user.id%>" data-id="<%=@project.id%>">
   <button>Next Project</button>
 </div>
+
+<div class="comment-form">
+  <%=form_for(ProjectComment.new) do |f|%>
+    <%= f.text_area :comment%>
+    <%= f.submit "Submit Comment" %>
+  <% end %>
+</div>
