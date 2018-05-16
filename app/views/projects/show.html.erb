@@ -4,6 +4,9 @@
 
 <div id="back_button">
   <%=button_to "Back this project",back_project_path(@project.id) if guest_user(@user)%>
+</div>
+
+<div>
   <%if correct_user(@user) %>
     <%= edit_project(@user, @project) %> - <%= delete_project(@user, @project) %>
   <% end %>
