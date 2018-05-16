@@ -67,9 +67,11 @@ function nextProjectListener(){
 }
 
 function categoryDisplay(categoryArray){
+  let response = ""
   for(let category of categoryArray){
-    return `<li><a href="/categories/${category.id}">${category.name}</a></li>`
+    response += `<li><a href="/categories/${category.id}">${category.name}</a></li>`
   }
+  return response
 }
 
 function userProjects(user_id){
