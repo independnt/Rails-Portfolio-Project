@@ -1,5 +1,8 @@
-<div class="titles">
+<div class="titles" id="project_title">
   <h1><%=@project.name%></h1>
+</div>
+
+<div id="back_button">
   <%=button_to "Back this project",back_project_path(@project.id) if guest_user(@user)%>
   <%if correct_user(@user) %>
     <%= edit_project(@user, @project) %> - <%= delete_project(@user, @project) %>
@@ -25,4 +28,8 @@
   <%if backed_user(current_user, @project) %>
     <p> Contact this user to collaborate: <%=@user.email%></p>
   <% end %>
+</div>
+
+<div class="js-next" data-uid="<%=@user.id%>" data-id="<%=@project.id%>">
+  <button>Next Project</button>
 </div>
