@@ -58,11 +58,6 @@ function nextProjectListener(){
       $('.categories').html(`${categoryDisplay(resp.categories)}`)
       $('.js-next').attr('data-id', resp.id)
     })
-
-    console.log(allProjects)
-    console.log(`current index is ${currentIndex}`)
-    console.log(`next index is ${nextIndex}`)
-    console.log(`next is ${next}`)
   })
 }
 
@@ -80,53 +75,3 @@ function userProjects(user_id){
     return projectObj
   })
 }
-
-// function createProject(project){
-//   let jsProject = new Project(project.id, project.name, project.description, project.categories, project.city, project.state)
-//   return jsProject
-// }
-
-// class Project {
-//   constructor(id, name, description, categories, city, state){
-//     this.id = id;
-//     this.name = name;
-//     this.description = description;
-//     this.categories = categories;
-//     this.city = city;
-//     this.state = state;
-//   }
-//
-//   getId(){
-//     return this.id
-//   }
-//
-//   getName(){
-//     return this.name
-//   }
-//
-//   getDescription(){
-//     return this.description
-//   }
-//
-//   getCategories(){
-//     return this.categories
-//   }
-//
-//   getCity(){
-//     return this.city
-//   }
-//
-//   getState(){
-//     return this.state
-//   }
-// }
-
-//$(function(){
-//  $("#test").on('click', function(){
-//    $.getJSON("/active_projects", data => {
-//      for(let x in data){
-//        console.log(x)
-//      }
-//    })
-//  })
-//})
