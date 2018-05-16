@@ -51,6 +51,11 @@ function nextProjectListener(){
 
     $.get(nextURL).done(resp => {
       $('.title').html(`<h1>${resp.name}</h1>`)
+      $('.details').html(`
+      <h4>Project location: ${resp.city}, ${resp.state}</h4>
+      <h3>Description:</h3>
+      <p>${resp.description}</p>`)
+      $('.categories').html(`${categoryDisplay(resp.categories)}`)
       $('.js-next').attr('data-id', resp.id)
     })
 
@@ -61,12 +66,9 @@ function nextProjectListener(){
   })
 }
 
-function nextProject(projectObj, projectId){
-  let next;
-  for(let p in projectObj){
-    if(projectObj[p] === projectId){
-
-    }
+function categoryDisplay(categoryArray){
+  for(let category of categoryArray){
+    return `<li><a href="/categories/${category.id}">${category.name}</a></li>`
   }
 }
 

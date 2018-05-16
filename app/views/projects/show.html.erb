@@ -18,9 +18,11 @@
 <div>
   <h4>Relevant Categories:</h4>
     <ul>
-      <% @project.categories.each do |category| %>
-        <li> <%=link_to category.name, category_path(category)%> </li>
-      <% end %>
+      <div class='categories'>
+        <% @project.categories.each do |category| %>
+          <li> <%=link_to category.name, category_path(category)%> </li>
+        <% end %>
+      </div>
     </ul>
 </div>
 
