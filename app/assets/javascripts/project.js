@@ -23,58 +23,99 @@ function indexListener(){
 }
 
 function nextProjectListener(){
-  $(".js-next").on('click', function(){
-    let currentId = parseInt($(".js-next").attr("data-uid"))
-    console.log(currentId)
+  let allProjects = []
+  let currentId = parseInt($(".js-next").attr("data-uid"))
+
+  //get all project Id's for the current user
+  $.get("/users/" + currentId + ".json").done(resp => {
+    resp["projects"].forEach(function(project){
+      allProjects.push(project.id)
+    })
   })
+
+  $(".js-next").on('click', () => {
+    let projectId = parseInt($(".js-next").attr("data-id"))
+    let currentIndex = allProjects.indexOf(projectId)
+    let nextIndex = currentIndex + 1
+    let next = projectId
+
+    if(allProjects.length === 1){
+      alert("This user only has one project")
+    }else if(nextIndex === allProjects.length){
+      next = allProjects[0]
+    }else{
+      next = allProjects[nextIndex]
+    }
+
+    let nextURL = `/users/${currentId}/projects/${next}.json`
+
+    $.get(nextURL).done(resp => {
+      $('.title').html(`<h1>${resp.name}</h1>`)
+      $('.js-next').attr('data-id', resp.id)
+    })
+
+    console.log(allProjects)
+    console.log(`current index is ${currentIndex}`)
+    console.log(`next index is ${nextIndex}`)
+    console.log(`next is ${next}`)
+  })
+}
+
+function nextProject(projectObj, projectId){
+  let next;
+  for(let p in projectObj){
+    if(projectObj[p] === projectId){
+
+    }
+  }
 }
 
 function userProjects(user_id){
-  $.getJSON("/users/" + user_id + ".json", data => {
-    let projectsObj = data.projects
-    console.log(projectsObj)
+  $.getJSON("/users/" + user_id + ".json").done(data => {
+    let projectObj = (data.projects)
+    return projectObj
   })
 }
 
-function createProject(project){
-  let jsProject = new Project(project.id, project.name, project.description, project.categories, project.city, project.state)
-  return jsProject
-}
+// function createProject(project){
+//   let jsProject = new Project(project.id, project.name, project.description, project.categories, project.city, project.state)
+//   return jsProject
+// }
 
-class Project {
-  constructor(id, name, description, categories, city, state){
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.categories = categories;
-    this.city = city;
-    this.state = state;
-  }
-
-  getId(){
-    return this.id
-  }
-
-  getName(){
-    return this.name
-  }
-
-  getDescription(){
-    return this.description
-  }
-
-  getCategories(){
-    return this.categories
-  }
-
-  getCity(){
-    return this.city
-  }
-
-  getState(){
-    return this.state
-  }
-}
+// class Project {
+//   constructor(id, name, description, categories, city, state){
+//     this.id = id;
+//     this.name = name;
+//     this.description = description;
+//     this.categories = categories;
+//     this.city = city;
+//     this.state = state;
+//   }
+//
+//   getId(){
+//     return this.id
+//   }
+//
+//   getName(){
+//     return this.name
+//   }
+//
+//   getDescription(){
+//     return this.description
+//   }
+//
+//   getCategories(){
+//     return this.categories
+//   }
+//
+//   getCity(){
+//     return this.city
+//   }
+//
+//   getState(){
+//     return this.state
+//   }
+// }
 
 //$(function(){
 //  $("#test").on('click', function(){
