@@ -50,6 +50,7 @@
 
 <div class="comments">
   <%@project.project_comments.each do |comment| %>
-    <%=comment.comment%><br>
+    <%=comment.user%> says: <br>
+    <%=comment.comment%><br></br>
   <% end %>
 </div>
