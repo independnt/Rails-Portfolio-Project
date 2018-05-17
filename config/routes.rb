@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 #users and users project paths
   resources :users do
     resources :projects, except: [:index]
+    post '/projects/:id/comments', to: 'project_comments#create'
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
-
-  resources :project_comments, only:[:create]
 
   get '/active_projects', to: 'projects#index'
   post '/back_project/:id', to: 'backed_projects#back_project', as: :back_project

@@ -13,5 +13,9 @@ class User < ApplicationRecord
     end
   end
 
+  def add_comment(project, comment)
+    ProjectComment.create(user: self, project: project, comment: comment)
+  end 
+
 
 end
