@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 #users and users project paths
   resources :users do
     resources :projects, except: [:index]
-    post '/projects/:id/comments', to: 'project_comments#create'
+    post '/projects/:id/comments', to: 'project_comments#create', as: :comment_project
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
 

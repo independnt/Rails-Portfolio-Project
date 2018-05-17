@@ -40,8 +40,16 @@
 </div>
 
 <div class="comment-form">
-  <%=form_for(ProjectComment.new) do |f|%>
+  <%=form_for(ProjectComment.new, url: user_comment_project_path(@user, @project)) do |f|%>
+    <%=f.hidden_field :user_id, value: @user.id %>
+    <%=f.hidden_field :project_id, value: @project.id %>
     <%= f.text_area :comment%>
     <%= f.submit "Submit Comment" %>
+  <% end %>
+</div>
+
+<div class="comments">
+  <%@project.project_comments.each do |comment| %>
+    <%=comment.comment%><br>
   <% end %>
 </div>
