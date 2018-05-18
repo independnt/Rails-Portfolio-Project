@@ -49,14 +49,15 @@ function nextProjectListener(){
 
     let nextURL = `/users/${currentId}/projects/${next}.json`
 
-    $.get(nextURL).done(resp => {
-      $('.title').html(`<h1>${resp.name}</h1>`)
-      $('.details').html(`
-      <h4>Project location: ${resp.city}, ${resp.state}</h4>
-      <h3>Description:</h3>
-      <p>${resp.description}</p>`)
-      $('.categories').html(`${categoryDisplay(resp.categories)}`)
-      $('.js-next').attr('data-id', resp.id)
+     $.get(nextURL).done(resp => {
+       $('.title').html(`<h1>${resp.name}</h1>`)
+       $('.details').html(`
+       <h4>Project location: ${resp.city}, ${resp.state}</h4>
+       <h3>Description:</h3>
+       <p>${resp.description}</p>`)
+       $('.button_to').attr('action', `/back_project/${resp.id}`)
+       $('.categories').html(`${categoryDisplay(resp.categories)}`)
+       $('.js-next').attr('data-id', resp.id)
     })
   })
 }
@@ -67,6 +68,10 @@ function categoryDisplay(categoryArray){
     response += `<li><a href="/categories/${category.id}">${category.name}</a></li>`
   }
   return response
+}
+
+function commentDisplay(commentsArray){
+
 }
 
 function userProjects(user_id){

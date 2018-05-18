@@ -2,7 +2,7 @@
   <h1><%=@project.name%></h1>
 </div>
 
-<div id="back_button">
+<div>
   <%=button_to "Back this project",back_project_path(@project.id) if guest_user(@user)%>
 </div>
 
@@ -49,8 +49,12 @@
 </div>
 
 <div class="comments">
+  <ol>
   <%@project.project_comments.each do |comment| %>
+  <li class ="js-comment" data-user="<%=comment.user%>">
     <%=comment.user%> says: <br>
     <%=comment.comment%><br></br>
+  </li>
   <% end %>
+</ol>
 </div>
