@@ -5,7 +5,7 @@ class ProjectCommentsController < ApplicationController
     @project = @user.projects.find_by(id: params[:id])
     @comment = ProjectComment.new(comment_params)
     if @comment.save
-      render json: @comment
+      redirect_to user_project_path(@user, @project)
     else
       render controller: 'project', action: 'show', user_id: @user, id: @project
     end

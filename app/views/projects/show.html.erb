@@ -41,20 +41,15 @@
 
 <div class="comment-form">
   <%=form_for(ProjectComment.new, url: user_comment_project_path(@user, @project)) do |f|%>
-    <%=f.hidden_field :user_id, value: @user.id %>
+    <%=f.hidden_field :user_id, value: current_user.id %>
     <%=f.hidden_field :project_id, value: @project.id %>
     <%= f.text_area :comment%>
     <%= f.submit "Submit Comment" %>
   <% end %>
 </div>
 
+<a href=# class="show-comments">Show Comments</a>
 <div class="comments">
   <ol class="comment-list">
-  <%@project.project_comments.each do |comment| %>
-  <li class ="js-comment" data-user="<%=comment.user%>">
-    <%=comment.user%> says: <br>
-    <%=comment.comment%><br></br>
-  </li>
-  <% end %>
-</ol>
+  </ol>
 </div>

@@ -1,13 +1,26 @@
 $(function(){
-  $('#new_project_comment').on('submit', function(event){
-    event.preventDefault();
-    let url = this.action;
-    let data = $(this).serialize();
-    $.post(url, data).done(function(resp){
-      console.log(resp.comment)
+  function submitCommentListener(){
+    $('#new_project_comment').on('submit', function(event){
+      event.preventDefault();
+      let url = this.action;
+      let data = $(this).serialize();
+      $.post(url, data).done(function(resp){
+        console.log(resp.comment)
+      })
     })
-  })
+  }
 })
+
+
+// function moreCommentsListener(){
+//   $('.show-comments').on('click', function(){
+//     alert('you clicked me')
+//     // let project_id = $(this).data("id");
+//     // let user_id = $(this).data("uid");
+//     // $.get(`/users/${user_id}/projects/${}`)
+//   })
+// }
+
 
 function createComment(commentJson){
   this.id = commentJson.id
