@@ -56,6 +56,8 @@ function nextProjectListener(){
        <h3>Description:</h3>
        <p>${resp.description}</p>`)
        $('.button_to').attr('action', `/back_project/${resp.id}`)
+       $('#edit-project').attr('href', `/users/${currentId}/projects/${resp.id}/edit`)
+       $('#delete-project').attr('href', `/users/${currentId}/projects/${resp.id}`)
        $('.categories').html(`${categoryDisplay(resp.categories)}`)
        $('.js-next').attr('data-id', resp.id)
     })
