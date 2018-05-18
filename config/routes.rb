@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :projects, except: [:index]
     post '/projects/:id/comments', to: 'project_comments#create', as: :comment_project
+    get '/projects/:id/comments', to: 'project_comments#index'
     delete '/projects/:id', to: 'projects#delete', as: :delete_project
   end
 

@@ -11,6 +11,13 @@ class ProjectCommentsController < ApplicationController
     end
   end
 
+  def index
+    @user = User.find_by(id: params[:user_id])
+    @project = @user.projects.find_by(id: params[:id])
+    @comments = @project.project_comments
+    render json: @comments
+  end
+
   private
 
   def comment_params

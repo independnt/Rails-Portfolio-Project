@@ -13,7 +13,6 @@ function indexListener(){
     let project_id = $(this).data("id");
     let user_id = $(this).data("uid")
     $.getJSON("/users/" + user_id + "/projects/" + project_id + ".json", data => {
-      console.log(data)
       $("#project-display").html(
         `<h3>${data.name}</h3>
         <p>${data.description}</p>`
@@ -60,6 +59,7 @@ function nextProjectListener(){
        $('#delete-project').attr('href', `/users/${currentId}/projects/${resp.id}`)
        $('.categories').html(`${categoryDisplay(resp.categories)}`)
        $('.js-next').attr('data-id', resp.id)
+       console.log($('.comment-list li'))
     })
   })
 }
@@ -72,9 +72,7 @@ function categoryDisplay(categoryArray){
   return response
 }
 
-function commentDisplay(commentsArray){
 
-}
 
 function userProjects(user_id){
   $.getJSON("/users/" + user_id + ".json").done(data => {
