@@ -59,6 +59,7 @@ function nextProjectListener(){
        $('#edit-project').attr('href', `/users/${currentId}/projects/${resp.id}/edit`)
        $('#delete-project').attr('href', `/users/${currentId}/projects/${resp.id}`)
        $('.categories').html(`${categoryDisplay(resp.categories)}`)
+       $('.comment-list').empty();
        $('.js-next').attr('data-id', resp.id)
     })
   })
