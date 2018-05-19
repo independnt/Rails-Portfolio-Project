@@ -10,21 +10,3 @@ $(function(){
     })
   }
 })
-
-
-// function moreCommentsListener(){
-//   $('.show-comments').on('click', function(){
-//     alert('you clicked me')
-//     // let project_id = $(this).data("id");
-//     // let user_id = $(this).data("uid");
-//     // $.get(`/users/${user_id}/projects/${}`)
-//   })
-// }
-
-
-function createComment(commentJson){
-  this.id = commentJson.id
-  this.user_id = commentJson.user_id
-  this.project_id = commentJson.project_id
-  this.comment = commentJson.comment
-}

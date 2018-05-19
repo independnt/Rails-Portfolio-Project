@@ -6,6 +6,7 @@ function attachProjectListeners(){
   indexListener();
   nextProjectListener();
   showCommentsListener();
+  commentPostListener();
 }
 
 
@@ -92,9 +93,26 @@ function listComments(commentArray){
   return comments
 }
 
-// function userProjects(user_id){
-//   $.getJSON("/users/" + user_id + ".json").done(data => {
-//     let projectObj = (data.projects)
-//     return projectObj
-//   })
-// }
+function commentPostListener(){
+  $('.new_project_comment').on('submit', function(event){
+    event.preventDefault();
+    $.post(this.action, $(this).serialize()).done(function(resp){
+      let newComment = new Comment(resp)
+      $('#project_comment_comment').val("")
+      commentFormat = newComment.showComment();
+      $('.comment-list').append(commentFormat)
+      console.log(newComment)
+    })
+  })
+}
+
+function Comment(commentJson){
+  this.id = commentJson.id
+  this.user_id = commentJson.user_id
+  this.project_id = commentJson.project_id
+  this.comment = commentJson.comment
+}
+
+Comment.prototype.showComment = function(){
+  return `<li>Your comment was submitted! - ${this.comment}`
+}
