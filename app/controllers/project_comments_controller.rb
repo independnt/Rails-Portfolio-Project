@@ -1,11 +1,13 @@
 class ProjectCommentsController < ApplicationController
 
   def create
+    puts params.inspect
     @user = User.find_by(id: params[:user_id])
     @project = @user.projects.find_by(id: params[:id])
+    @current_user = current_user
     @comment = ProjectComment.new(comment_params)
     if @comment.save
-      render json: @comment
+      render json: @comment, username: current_user
     else
       render controller: 'project', action: 'show', user_id: @user, id: @project
     end

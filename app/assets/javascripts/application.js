@@ -16,4 +16,3 @@
 //= require jquery_ujs
 //= require_tree
 //= require project
-//= require project_comment

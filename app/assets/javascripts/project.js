@@ -60,6 +60,8 @@ function nextProjectListener(){
        $('#edit-project').attr('href', `/users/${currentId}/projects/${resp.id}/edit`)
        $('#delete-project').attr('href', `/users/${currentId}/projects/${resp.id}`)
        $('.categories').html(`${categoryDisplay(resp.categories)}`)
+       $('#new_project_comment').attr('action', `/users/${currentId}/projects/${resp.id}`)
+       $('#hidden-projectId').attr('value', `${resp.id}`)
        $('.comment-list').empty();
        $('.js-next').attr('data-id', resp.id)
     })
@@ -96,12 +98,13 @@ function listComments(commentArray){
 function commentPostListener(){
   $('.new_project_comment').on('submit', function(event){
     event.preventDefault();
+    debugger
     $.post(this.action, $(this).serialize()).done(function(resp){
       let newComment = new Comment(resp)
       $('#project_comment_comment').val("")
       commentFormat = newComment.showComment();
-      $('.comment-list').append(commentFormat)
-      console.log(newComment)
+      $('.comment-list').append(commentFormat);
+      $('#comment-button').prop('disabled', false);
     })
   })
 }
@@ -111,8 +114,9 @@ function Comment(commentJson){
   this.user_id = commentJson.user_id
   this.project_id = commentJson.project_id
   this.comment = commentJson.comment
+  this.username = commentJson.user.username
 }
 
 Comment.prototype.showComment = function(){
-  return `<li>Your comment was submitted! - ${this.comment}`
+  return `<li>${this.username} says - ${this.comment}`
 }
