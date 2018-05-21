@@ -60,7 +60,7 @@ function nextProjectListener(){
        $('#edit-project').attr('href', `/users/${currentId}/projects/${resp.id}/edit`)
        $('#delete-project').attr('href', `/users/${currentId}/projects/${resp.id}`)
        $('.categories').html(`${categoryDisplay(resp.categories)}`)
-       $('#new_project_comment').attr('action', `/users/${currentId}/projects/${resp.id}`)
+       $('#new_project_comment').attr('action', `/users/${currentId}/projects/${resp.id}/comments`)
        $('#hidden-projectId').attr('value', `${resp.id}`)
        $('.comment-list').empty();
        $('.js-next').attr('data-id', resp.id)
@@ -98,7 +98,6 @@ function listComments(commentArray){
 function commentPostListener(){
   $('.new_project_comment').on('submit', function(event){
     event.preventDefault();
-    debugger
     $.post(this.action, $(this).serialize()).done(function(resp){
       let newComment = new Comment(resp)
       $('#project_comment_comment').val("")
