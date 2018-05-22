@@ -51,7 +51,7 @@ function nextProjectListener(){
     let nextURL = `/users/${currentId}/projects/${next}.json`
 
      $.get(nextURL).done(resp => {
-       $('.title').html(`<h1>${resp.name}</h1>`)
+       $('.title').html(`<h1><center>${resp.name}</center></h1>`)
        $('.details').html(`
        <h4>Project location: ${resp.city}, ${resp.state}</h4>
        <h3>Description:</h3>

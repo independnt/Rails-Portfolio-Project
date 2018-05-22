@@ -58,3 +58,12 @@ div.transbox {
   opacity: 0.9;
   filter: alpha(opacity=60); /* For IE8 and earlier */
 }
+
+#credit {
+    position:relative;
+}
+#credit {
+    position:absolute;
+    bottom:0;
+    right:0;
+}
