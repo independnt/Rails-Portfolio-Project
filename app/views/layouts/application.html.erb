@@ -9,9 +9,11 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="transbox">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>
