@@ -14,6 +14,23 @@
  *= require_self
  */
 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ body {
+   font-family: Helvetica Neue, Arial;
+   font-size: 18px;
+ }
+
+ .container {
+   width: 1140px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
  .home-page-font {
    font-family: fantasy;
  }
