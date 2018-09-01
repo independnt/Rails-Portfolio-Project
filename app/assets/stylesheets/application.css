@@ -56,10 +56,6 @@ table, th, td {
     border: 1px solid black;
 }
 
-.category-item{
-  display: none
-}
-
 html{
   background: url(1584.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
