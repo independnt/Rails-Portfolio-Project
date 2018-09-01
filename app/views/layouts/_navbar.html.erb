@@ -1,17 +1,13 @@
-<div class="navbar navbar-inverse navbar-fixed-top" id="navigate" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <%if logged_in?%>
-        <small>Signed in as <%=current_user.username%></small>&nbsp;
-        <a class="navbar-brand" href="<%= user_path(current_user) %>"/>Home</a>&nbsp;
-        <a class="navbar-brand" href="/logout" data-method="delete"/>Signout</a>&nbsp;
-      <% elsif !logged_in?%>
-        <a class="navbar-brand" href="<%= login_path %>"/>Login</a>&nbsp;
-        <a class="navbar-brand" href="<%= new_user_path %>"/>Sign up</a>&nbsp;
-      <% end %>
-      <a class="navbar-brand" href="<%= active_projects_path %>"/>Community's Projects</a>&nbsp;
-      <a class="navbar-brand" href="<%= categories_path %>"/>Project Categories</a>&nbsp;
-      <a class="navbar-brand" href="<%= root_path %>"/>About Prive</a>&nbsp;
-    </div>
-  </div>
-</div>
+<nav>
+  <%if logged_in?%>
+    <small>Signed in as <%=current_user.username%></small>&nbsp;
+    <a class="navbar-brand" href="<%= user_path(current_user) %>"/>Home</a>&nbsp;
+    <a class="navbar-brand" href="/logout" data-method="delete"/>Signout</a>&nbsp;
+  <% elsif !logged_in?%>
+    <a class="navbar-brand" href="<%= login_path %>"/>Login</a>&nbsp;
+    <a class="navbar-brand" href="<%= new_user_path %>"/>Sign up</a>&nbsp;
+  <% end %>
+  <a class="navbar-brand" href="<%= active_projects_path %>"/>Community's Projects</a>&nbsp;
+  <a class="navbar-brand" href="<%= categories_path %>"/>Project Categories</a>&nbsp;
+  <a class="navbar-brand" href="<%= root_path %>"/>About Prive</a>&nbsp;
+</nav>
