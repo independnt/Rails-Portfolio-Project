@@ -23,14 +23,12 @@
 </div>
 
 
-<div>
+<div class="categories">
   <h4>Relevant Categories:</h4>
-    <ul>
-      <div class='categories'>
+    <ul class="category-list">
         <% @project.categories.each do |category| %>
           <li> <%=link_to category.name, category_path(category)%> </li>
         <% end %>
-      </div>
     </ul>
 </div>
 
