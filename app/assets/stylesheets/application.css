@@ -80,3 +80,10 @@ div.transbox {
     bottom:0;
     right:0;
 }
+
+/***********Show Pages**************/
+
+.title {
+  text-align: center;
+  letter-spacing: 1px;
+}
