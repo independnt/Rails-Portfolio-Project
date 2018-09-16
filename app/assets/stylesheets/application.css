@@ -121,4 +121,13 @@ table, th, td {
   margin-top: 20px;
   margin-right: 10px;
   float: right;
+  border-radius: 20%;
+  cursor: pointer;
+  padding: 15px 32px;
+  background-color: #DCDCDC;
+  transition: background-color 0.2s;
+}
+
+.next-button:hover {
+  background-color: #808080;
 }
