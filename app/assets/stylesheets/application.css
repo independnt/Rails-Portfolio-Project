@@ -82,6 +82,15 @@ table, th, td {
     right:0;
 }
 
+/***********NavBar**************/
+
+.signed-in {
+  float: right;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+
 /***********Show Pages**************/
 
 .title {

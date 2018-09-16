@@ -1,6 +1,6 @@
 <nav>
   <%if logged_in?%>
-    <small>Signed in as <%=current_user.username%></small>&nbsp;
+    <small class="signed-in">Signed in as <%=current_user.username%></small>&nbsp;
     <a class="navbar-brand" href="<%= user_path(current_user) %>"/>Home</a>&nbsp;
     <a class="navbar-brand" href="/logout" data-method="delete"/>Signout</a>&nbsp;
   <% elsif !logged_in?%>
