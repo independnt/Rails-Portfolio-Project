@@ -64,8 +64,9 @@ table, th, td {
     border: 1px solid black;
 }
 
-div.transbox {
+.transbox {
   margin: 30px;
+  padding: 20px;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.9;
@@ -114,4 +115,10 @@ div.transbox {
 
 .category-item:hover {
   font-size: 105%;
+}
+
+.next-button {
+  margin-top: 20px;
+  margin-right: 10px;
+  float: right;
 }
