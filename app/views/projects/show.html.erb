@@ -27,7 +27,7 @@
   <h4>Relevant Categories:</h4>
     <ul class="category-list">
         <% @project.categories.each do |category| %>
-          <li> <%=link_to category.name, category_path(category)%> </li>
+          <li class="category-item"> <%=link_to category.name, category_path(category)%> </li>
         <% end %>
     </ul>
 </div>
@@ -39,7 +39,7 @@
 </div>
 
 <div class="js-next" data-uid="<%=@user.id%>" data-id="<%=@project.id%>">
-  <button>Next Project</button>
+  <button class="next-button">Next Project</button>
 </div>
 
 <div class="comment-form">

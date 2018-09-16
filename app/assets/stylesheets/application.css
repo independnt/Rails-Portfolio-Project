@@ -102,10 +102,16 @@ div.transbox {
 }
 
 .category-list li {
+  display: inline;
   list-style: none;
   margin-left: 20px;
-  margin-bottom: 30px;
 }
+
 .category-list li a{
   text-decoration: none;
+  transition: font-size 0.2s;
+}
+
+.category-item:hover {
+  font-size: 105%;
 }
