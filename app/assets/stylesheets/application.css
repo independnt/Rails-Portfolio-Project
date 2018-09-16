@@ -140,3 +140,12 @@ table, th, td {
 .next-button:hover {
   background-color: #808080;
 }
+
+.comment-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#comment-button {
+  margin-bottom: 5px;
+}

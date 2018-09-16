@@ -46,7 +46,7 @@
   <%=form_for(ProjectComment.new, url: user_comment_project_path(@user, @project)) do |f|%>
     <%=f.hidden_field :user_id, value: current_user.id if current_user%>
     <%=f.hidden_field :project_id, value: @project.id, id: 'hidden-projectId' %>
-    <%= f.text_area :comment%>
+    <%= f.text_area :comment, class: 'comment-box'%> <br>
     <%= f.submit "Submit Comment", id: 'comment-button' %>
   <% end %>
 </div>
